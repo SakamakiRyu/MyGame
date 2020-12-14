@@ -454,11 +454,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: 
-  enemyHitPoint: 0
-  enemyAttackPower: 0
+  enemyHitPoint: 1
+  enemyAttackPower: 1
   enemyBlockPower: 0
   enemyExp: 0
-  enemyLevel: 0
+  enemyLevel: 1
 --- !u!195 &6161556437130859428
 NavMeshAgent:
   m_ObjectHideFlags: 0
