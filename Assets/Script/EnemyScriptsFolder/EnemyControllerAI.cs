@@ -18,23 +18,23 @@ public class EnemyControllerAI : MonoBehaviour
     [SerializeField] float BaseSpeed = 3;
 
     EnemyDate enemyDate;
+    PlayerDate playerDate;
     Vector3 targetPosition;
-    Transform target;
     NavMeshAgent navMesh;
+    /// <summary>プレイヤーとの距離</summary>
     float distance;
 
     void Start()
     {
-        navMesh = GetComponent<NavMeshAgent>();
         enemyDate = this.GetComponent<EnemyDate>();
-        targetPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        playerDate = GameObject.Find("Player").GetComponent<PlayerDate>();
+        targetPosition = GameObject.Find("Player").transform.position;
+        navMesh = GetComponent<NavMeshAgent>();
     }
     void Update()
     {
         distance = Vector3.Distance(this.gameObject.transform.position, targetPosition);
-        targetPosition = target.position;
-
+      
         if (distance <= beginMoveDistance)
         {
             navMesh.SetDestination(targetPosition);
@@ -43,9 +43,9 @@ public class EnemyControllerAI : MonoBehaviour
         {
             navMesh.SetDestination(this.transform.position);
         }
+
         if (enemyDate.enemyHitPoint <= 0)
         {
-            PlayerDate playerDate = GameObject.Find("Player").GetComponent<PlayerDate>();
             Debug.Log(this.gameObject.name + "を倒した");
             playerDate.exp += enemyDate.enemyExp;
             Instantiate(deadPrefab, this.transform.position, Quaternion.identity);
