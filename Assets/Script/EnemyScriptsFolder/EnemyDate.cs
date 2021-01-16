@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyDate : MonoBehaviour
 {
-    [SerializeField] string enemyName = "ゴブリン";
+    [SerializeField] public string enemyName = null;
     /// <summary>敵のHP</summary>
     [SerializeField] public int enemyHitPoint = 100;
     /// <summary>敵の攻撃力</summary>
@@ -15,7 +15,7 @@ public class EnemyDate : MonoBehaviour
     /// <summary>敵の保有経験値</summary>
     [SerializeField] public int enemyExp = 10;
     /// <summary>敵のレベル</summary>
-    [SerializeField] public int enemyLevel = 1;
+    [SerializeField] private int enemyLevel = 1;
 
     public EnemyDate(int enemyLevel)
     {

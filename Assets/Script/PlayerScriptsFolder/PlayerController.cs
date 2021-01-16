@@ -11,11 +11,11 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     /// <summary>現在の移動速度</summary>
-    [SerializeField] private float movingSpeed;
+    [SerializeField] private float m_movingSpeed;
     /// <summary>歩く速さ</summary>
-    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float m_walkSpeed = 5f;
     /// <summary>走る速さ</summary>
-    [SerializeField] private float sprintSpeed = 8f;
+    [SerializeField] private float m_sprintSpeed = 8f;
     /// <summary>ターンの速さ</summary>
     [SerializeField] private float m_turnSpeed = 3f;
     /// <summary>ジャンプ力</summary>
@@ -27,12 +27,13 @@ public class PlayerController : MonoBehaviour
     /// <summary>剣の当たり判定</summary>
     [SerializeField] Collider m_attackTrigger = null;
     /// <summary>盾の当たり判定</summary>
-    [SerializeField] Collider sieldAttackTrigger = null;
+    [SerializeField] Collider shieldAttackTrigger = null;
 
     Animator m_anim = null;
     Rigidbody m_rb = null;
     PlayerDate playerDate;
     float jumpState = 0;
+    /// <summary>trueで他の行動が可能falseの間、現在の行動以外不可</summary>
     bool action = true;
 
     void Start()
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         m_rb = GetComponent<Rigidbody>();
         m_anim = GetComponent<Animator>();
         playerDate = GetComponent<PlayerDate>();
-        movingSpeed = walkSpeed;
+        m_movingSpeed = m_walkSpeed;
     }
     void Update()
     {
@@ -51,16 +52,19 @@ public class PlayerController : MonoBehaviour
         // 入力方向のベクトルを組み立てる
         Vector3 dir = Vector3.forward * v + Vector3.right * h;
 
-        if (dir == Vector3.zero && IsGrounded())
+        if (dir == Vector3.zero)
         {
             // 方向の入力がニュートラルの時は、y 軸方向の速度を保持するだけ
-            m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f);
+            if (IsGrounded())
+            {
+                m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f);
+            }
+            else if (!IsGrounded())
+            {
+                m_rb.velocity = new Vector3(this.m_rb.velocity.x, m_rb.velocity.y, this.m_rb.velocity.z);
+            }
         }
-        else if(dir == Vector3.zero && !IsGrounded())
-        {
-            m_rb.velocity = new Vector3(this.m_rb.velocity.x,m_rb.velocity.y,this.m_rb.velocity.z);
-        }
-        else if(IsGrounded())
+        else if (IsGrounded() && action == true)
         {
             // カメラを基準に入力が上下=奥/手前, 左右=左右にキャラクターを向ける
             dir = Camera.main.transform.TransformDirection(dir);    // メインカメラを基準に入力方向のベクトルを変換する
@@ -70,24 +74,21 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(dir);
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * m_turnSpeed);  // Slerp を使うのがポイント
 
-            Vector3 velo = dir.normalized * movingSpeed; // 入力した方向に移動する
+            Vector3 velo = dir.normalized * m_movingSpeed; // 入力した方向に移動する
             velo.y = m_rb.velocity.y;   // ジャンプした時の y 軸方向の速度を保持する
             m_rb.velocity = velo;   // 計算した速度ベクトルをセットする
         }
+        
+        if (Input.GetButtonDown("Sprint") && IsGrounded())
+        {
+            m_movingSpeed = m_sprintSpeed;
+        }
 
-        if (Input.GetButtonDown("Sprint") && IsGrounded() && action == true)
+        if (Input.GetButtonUp("Sprint"))
         {
-            movingSpeed = sprintSpeed;
+                m_movingSpeed = m_walkSpeed;
         }
-        else if (Input.GetButtonUp("Sprint") && IsGrounded() && action == true)
-        {
-            movingSpeed = walkSpeed;
-        }
-        else if (Input.GetButtonUp("Sprint"))
-        {
-            movingSpeed = walkSpeed;
-        }
-  
+ 
         // ジャンプの入力を取得し、接地している時に押されていたらジャンプする
         if (Input.GetButtonDown("Jump") && IsGrounded() && action == true)
         {
@@ -100,7 +101,20 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetTrigger("Attack");
         }
-        // 浮いているかを判定し浮いていたら滞空アニメーションを再生する
+
+        if (Input.GetButtonDown("Fire2") && IsGrounded() && action == true)
+        {
+            action = false;
+            m_anim.SetBool("Block",true);
+            m_movingSpeed = 0;
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
+            action = true;
+            m_anim.SetBool("Block", false);
+        }
+
+        // 接地しているかをを判定し接地してなかったら滞空アニメーションを再生する
         if (!IsGrounded())
         {
             jumpState = m_rb.position.y;
@@ -170,26 +184,27 @@ public class PlayerController : MonoBehaviour
 
     void BeginSieldAttack()
     {
-        if (sieldAttackTrigger)
+        if (shieldAttackTrigger)
         {
-            sieldAttackTrigger.gameObject.SetActive(true);
+            shieldAttackTrigger.gameObject.SetActive(true);
         }
     }
     void EndSieldAttack()
     {
-        if (sieldAttackTrigger)
+        if (shieldAttackTrigger)
         {
-            sieldAttackTrigger.gameObject.SetActive(false);
+            shieldAttackTrigger.gameObject.SetActive(false);
         }
     }
     void MoveStop()
     {
         action = false;
-        movingSpeed = 0;
+        m_rb.velocity = Vector3.zero;
+        m_movingSpeed = 0;
     }
     void MoveStart()   
     {
         action = true;
-        movingSpeed = walkSpeed;
+        m_movingSpeed = m_walkSpeed;
     }
 }
