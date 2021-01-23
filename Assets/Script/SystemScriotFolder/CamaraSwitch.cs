@@ -4,7 +4,6 @@ using UnityEngine;
 using Cinemachine;
 public class CamaraSwitch : MonoBehaviour
 {
-    [SerializeField] Transform[] transform;
     [SerializeField] Transform entrance;
     [SerializeField] Transform exit;
     [SerializeField] GameObject player;

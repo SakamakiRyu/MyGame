@@ -15,7 +15,7 @@ public class EnemyDate : MonoBehaviour
     /// <summary>敵の保有経験値</summary>
     [SerializeField] public int enemyExp = 10;
     /// <summary>敵のレベル</summary>
-    [SerializeField] private int enemyLevel = 1;
+    [SerializeField] public int enemyLevel;
 
     public EnemyDate(int enemyLevel)
     {

@@ -2404,7 +2404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
-  hitPoint: 50
+  hitPoint: 100
   baseAttackPower: 5
   baseBlockPower: 2
   level: 1

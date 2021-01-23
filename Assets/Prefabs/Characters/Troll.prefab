@@ -590,6 +590,7 @@ MonoBehaviour:
   attackTrigger: {fileID: 2551577195468120731}
   beginMoveDistance: 20
   BaseSpeed: 3
+  target: {fileID: 3624910432461424489, guid: fb1c1e6ddfecadb4bbf49860dd97476c, type: 3}
 --- !u!195 &5007608085433371720
 NavMeshAgent:
   m_ObjectHideFlags: 0
