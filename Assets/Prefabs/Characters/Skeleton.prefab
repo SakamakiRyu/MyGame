@@ -499,6 +499,7 @@ MonoBehaviour:
   attackTrigger: {fileID: 5128681109509452653}
   beginMoveDistance: 10
   BaseSpeed: 3
+  target: {fileID: 3624910432461424489, guid: fb1c1e6ddfecadb4bbf49860dd97476c, type: 3}
 --- !u!1 &5128681108140965403
 GameObject:
   m_ObjectHideFlags: 0

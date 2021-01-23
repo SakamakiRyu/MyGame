@@ -28,12 +28,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider m_attackTrigger = null;
     /// <summary>盾の当たり判定</summary>
     [SerializeField] Collider shieldAttackTrigger = null;
-
+    
     Animator m_anim = null;
     Rigidbody m_rb = null;
     PlayerDate playerDate;
-    float jumpState = 0;
-    /// <summary>trueで他の行動が可能falseの間、現在の行動以外不可</summary>
+    float nowHidht = 0;
+    /// <summary>trueで他の行動が可能。falseの間、現在の行動以外不可</summary>
     bool action = true;
 
     void Start()
@@ -117,14 +117,19 @@ public class PlayerController : MonoBehaviour
         // 接地しているかをを判定し接地してなかったら滞空アニメーションを再生する
         if (!IsGrounded())
         {
-            jumpState = m_rb.position.y;
-            m_anim.SetFloat("JumpMidAir", jumpState);
+            Vector3 down = transform.TransformDirection(Vector3.down);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, down, out hit, 3f))
+            {
+                nowHidht = hit.distance;
+            }
+            m_anim.SetFloat("JumpMidAir", nowHidht);
         }
-        else
-        {
-            jumpState = 0;
-            m_anim.SetFloat("JumpMidAir", jumpState);
-        }
+        //else
+        //{
+        //    jumpState = 0;
+        //    m_anim.SetFloat("JumpMidAir", jumpState);
+        //}
         
         if (playerDate.hitPoint <= 0)
         {
