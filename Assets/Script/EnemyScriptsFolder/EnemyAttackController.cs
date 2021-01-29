@@ -7,7 +7,7 @@ public class EnemyAttackController : MonoBehaviour
 {
     /// <summary>攻撃力</summary>
     [SerializeField] public int enemyAttackPower = 5;
-   
+    
     private void OnTriggerEnter(Collider other)
     {
         GameObject gameObject = other.gameObject;
