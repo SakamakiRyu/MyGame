@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     Animator m_anim = null;
     Rigidbody m_rb = null;
     PlayerDate playerDate;
-    float nowHidht = 0;
+    float nowHeight = 0;
     /// <summary>trueで他の行動が可能。falseの間、現在の行動以外不可</summary>
     bool action = true;
 
@@ -121,9 +121,9 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, down, out hit, 3f))
             {
-                nowHidht = hit.distance;
+                nowHeight = hit.distance;
             }
-            m_anim.SetFloat("JumpMidAir", nowHidht);
+            m_anim.SetFloat("JumpMidAir", nowHeight);
         }
         //else
         //{

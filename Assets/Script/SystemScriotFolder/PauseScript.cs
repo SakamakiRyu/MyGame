@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseScript : MonoBehaviour
 {
     [SerializeField] GameObject mouseCursor;
-    [SerializeField] GameObject reStartButton;
+    [SerializeField] GameObject restartButton;
     [SerializeField] GameObject itemPanel;
 
     private void Update()
@@ -13,7 +13,7 @@ public class PauseScript : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             Time.timeScale = 0f;
-            reStartButton.SetActive(true);
+            restartButton.SetActive(true);
             itemPanel.SetActive(true);
             // mouseCursor.SetActive(true);
         }
@@ -22,7 +22,7 @@ public class PauseScript : MonoBehaviour
     public void ReStartGame()
     {
         itemPanel.SetActive(false);
-        reStartButton.SetActive(false);
+        restartButton.SetActive(false);
         // mouseCursor.SetActive(false);
         Time.timeScale = 1f;
     }

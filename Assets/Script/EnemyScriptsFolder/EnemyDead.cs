@@ -8,7 +8,6 @@ public class EnemyDead : MonoBehaviour
     void Start()
     {
         enemySpawnController = transform.root.GetComponent<EnemySpawnController>();
-        enemySpawnController.enemyAlive[0] = false;
         Invoke("Dead", 3);
     }
     void Dead()
