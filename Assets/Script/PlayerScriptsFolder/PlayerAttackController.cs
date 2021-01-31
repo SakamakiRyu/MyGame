@@ -11,7 +11,7 @@ public class PlayerAttackController : MonoBehaviour
     private void OnTriggerEnter(Collider enemy)
     {
         GameObject enemyObject = enemy.gameObject;
-        PlayerDate date = GameObject.Find("Player").GetComponent<PlayerDate>();
+        PlayerDate date = GetComponentInParent<PlayerDate>();
 
         if (enemyObject.tag == "Enemy")
         {
