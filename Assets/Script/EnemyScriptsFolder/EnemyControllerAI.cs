@@ -28,9 +28,9 @@ public class EnemyControllerAI : MonoBehaviour
     void Start()
     {
         enemyDate = this.GetComponent<EnemyDate>();
-        playerDate = GameObject.Find("Player").GetComponent<PlayerDate>();
+        playerDate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDate>();
         navMesh = GetComponent<NavMeshAgent>();
-        target = GameObject.Find("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     void Update()
     {
@@ -54,8 +54,8 @@ public class EnemyControllerAI : MonoBehaviour
     }
     private void LateUpdate()
     {
-        enemyAnim.SetFloat("Speed",navMesh.velocity.magnitude);
-        enemyAnim.SetFloat("AttackDistance",distance);
+        enemyAnim.SetFloat("Speed", navMesh.velocity.magnitude);
+        enemyAnim.SetFloat("AttackDistance", distance);
     }
     void BeginAttackMotion()
     {

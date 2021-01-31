@@ -6,12 +6,24 @@ using UnityEngine;
 public class EnemyAttackController : MonoBehaviour
 {
     /// <summary>攻撃力</summary>
-    [SerializeField] public int enemyAttackPower = 5;
-    
+    [SerializeField] public int enemyAttackPower;
+
+    private void Start()
+    {
+        enemyAttackPower = this.GetComponentInParent<EnemyDate>().enemyAttackPower;
+    }
     private void OnTriggerEnter(Collider other)
     {
         GameObject gameObject = other.gameObject;
-        if (gameObject.tag == "Player")
+        
+        if (gameObject.name == "TutorialPlayer")
+        {
+            PlayerDate player = other.gameObject.GetComponent<PlayerDate>();
+            Animator animator = other.gameObject.GetComponent<Animator>();
+            
+            animator.SetTrigger("PlayerGetHit");
+        }
+        else if (gameObject.tag == "Player")
         {
             PlayerDate player = other.gameObject.GetComponent<PlayerDate>();
             Animator animator = other.gameObject.GetComponent<Animator>();
