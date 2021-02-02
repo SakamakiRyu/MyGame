@@ -47,7 +47,7 @@ public class EnemyControllerAI : MonoBehaviour
         if (enemyDate.enemyHitPoint <= 0)
         {
             Debug.Log(this.gameObject.name + "を倒した");
-            playerDate.exp += enemyDate.enemyExp;
+            playerDate.nowExp += enemyDate.enemyExp;
             Instantiate(deadPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

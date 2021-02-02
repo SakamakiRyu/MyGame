@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     /// <summary>現在の移動速度</summary>
-    [SerializeField] private float m_movingSpeed;
+    [SerializeField] public float m_movingSpeed;
     /// <summary>歩く速さ</summary>
     [SerializeField] private float m_walkSpeed = 5f;
     /// <summary>走る速さ</summary>
@@ -125,13 +125,8 @@ public class PlayerController : MonoBehaviour
             }
             m_anim.SetFloat("JumpMidAir", nowHeight);
         }
-        //else
-        //{
-        //    jumpState = 0;
-        //    m_anim.SetFloat("JumpMidAir", jumpState);
-        //}
         
-        if (playerDate.hitPoint <= 0)
+        if (playerDate.nowHitPoint <= 0)
         {
             Debug.Log("力尽きた、、、");
             Instantiate(playerDeadPrefab, this.transform.position, Quaternion.identity);

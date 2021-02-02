@@ -7,29 +7,26 @@ public class PlayerAttackController : MonoBehaviour
 {
     /// <summary>武器の攻撃力</summary>
     [SerializeField] int attackPower = 5;
-
+    PlayerDate playerDate;
+    private void Start()
+    {
+        playerDate = GetComponentInParent<PlayerDate>();
+    }
     private void OnTriggerEnter(Collider enemy)
     {
-        GameObject enemyObject = enemy.gameObject;
-        PlayerDate date = GetComponentInParent<PlayerDate>();
-
-        if (enemyObject.tag == "Enemy")
+        if (enemy.tag == "Enemy")
         {
             EnemyDate enemyHp = enemy.gameObject.GetComponent<EnemyDate>();
             Animator enemyAnim = enemy.GetComponent<Animator>();
 
             enemyAnim.SetTrigger("EnemyGetHit");
-            if ((date.baseAttackPower + attackPower) > enemyHp.enemyBlockPower)
+            if (playerDate.baseAttackPower + attackPower > enemyHp.enemyBlockPower)
             {
-                enemyHp.enemyHitPoint -= (attackPower + date.baseAttackPower) - enemyHp.enemyBlockPower;
-                Debug.Log(enemyObject.name + "に" + ((attackPower + date.baseAttackPower) - enemyHp.enemyBlockPower) + "のダメージ!");
-                Debug.Log(enemyObject.name + "の残りHP : " + enemyHp.enemyHitPoint);
+                enemyHp.enemyHitPoint -= (attackPower + playerDate.baseAttackPower) - enemyHp.enemyBlockPower;
             }
-            else if ((date.baseAttackPower + attackPower) <= enemyHp.enemyBlockPower)
+            else if (playerDate.baseAttackPower + attackPower <= enemyHp.enemyBlockPower)
             {
                 enemyHp.enemyHitPoint -= 1;
-                Debug.Log(enemyObject.name + "に 1 のダメージ!");
-                Debug.Log(enemyObject.name + "の残りHP : " + enemyHp.enemyHitPoint);
             }
         }
     }
