@@ -5432,7 +5432,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.138756, y: 1}
+    m_SensorSize: {x: 1.6002156, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6840,7 +6840,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.138756, y: 1}
+    m_SensorSize: {x: 1.6002156, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7210,7 +7210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseCursor: {fileID: 1451513674}
-  reStartButton: {fileID: 594386527}
+  restartButton: {fileID: 0}
   itemPanel: {fileID: 1411425739}
 --- !u!114 &705255445
 MonoBehaviour:
@@ -8764,7 +8764,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.138756, y: 1}
+    m_SensorSize: {x: 1.6002156, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13324,7 +13324,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.138756, y: 1}
+    m_SensorSize: {x: 1.6002156, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13340,7 +13340,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832617188}
-  m_LocalRotation: {x: -0.059023183, y: 0.75072175, z: 0.06770217, w: 0.65448415}
+  m_LocalRotation: {x: -0.059023183, y: 0.75072175, z: 0.06770216, w: 0.65448415}
   m_LocalPosition: {x: -34.2625, y: -10.371147, z: -1.5038004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15322,7 +15322,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.138756, y: 1}
+    m_SensorSize: {x: 1.6002156, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -15604,6 +15604,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624910432461424486, guid: fb1c1e6ddfecadb4bbf49860dd97476c,
+        type: 3}
+      propertyPath: nowHitPoint
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624910432461424486, guid: fb1c1e6ddfecadb4bbf49860dd97476c,
+        type: 3}
+      propertyPath: MaxHitPoint
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3624910432461424488, guid: fb1c1e6ddfecadb4bbf49860dd97476c,
         type: 3}

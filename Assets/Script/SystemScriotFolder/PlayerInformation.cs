@@ -18,13 +18,14 @@ public class PlayerInformation : MonoBehaviour
     {
         playerDate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDate>();
         hpSlider.maxValue = playerDate.MaxHitPoint;
-        expSlider.maxValue = playerDate.needExp;
+        
     }
     void Update()
     {
+        expSlider.maxValue = playerDate.needExp;
         hpSlider.value = playerDate.nowHitPoint;
         hpText.text = "HitPoint : " + playerDate.nowHitPoint + " / " + playerDate.MaxHitPoint;
         expSlider.value = playerDate.nowExp;
-        expText.text = "EXP : " + playerDate.nowExp + " / " + playerDate.nowExp;
+        expText.text = "EXP : " + playerDate.nowExp + " / " + playerDate.needExp;
     } 
 }

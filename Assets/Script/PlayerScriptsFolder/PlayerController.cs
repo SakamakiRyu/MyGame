@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     /// <summary>現在の移動速度</summary>
-    [SerializeField] private float m_movingSpeed;
+    [SerializeField] public float m_movingSpeed;
     /// <summary>歩く速さ</summary>
     [SerializeField] private float m_walkSpeed = 5f;
     /// <summary>走る速さ</summary>
