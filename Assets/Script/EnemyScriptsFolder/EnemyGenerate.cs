@@ -14,6 +14,7 @@ public class EnemyGenerate : MonoBehaviour
         if (enemyGenerate == true)
         {
             enemy.SetActive(true);
+            Destroy(this);
         }
     }
 }

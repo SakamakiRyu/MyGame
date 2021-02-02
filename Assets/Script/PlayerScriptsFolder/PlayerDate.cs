@@ -7,31 +7,32 @@ using UnityEngine;
 /// </summary>
 public class PlayerDate : MonoBehaviour
 {
-    /// <summary>名前</summary>
+    /// <summary>Playerの名前</summary>
     [SerializeField] public string playerName = null;
-    /// <summary>体力</summary>
-    [SerializeField] public int hitPoint = 50;
-    /// <summary>基礎攻撃力</summary>
+    /// <summary>Playerの現在の体力</summary>
+    [SerializeField] public int nowHitPoint = 100;
+    /// <summary>Playerの基礎攻撃力</summary>
     [SerializeField] public int baseAttackPower = 10;
-    /// <summary>基礎防御力</summary>
+    /// <summary>Playerの基礎防御力</summary>
     [SerializeField] public int baseBlockPower = 10;
     /// <summary>レベル</summary>
     [SerializeField] private int level = 1;
     /// <summary>経験値</summary>
-    [SerializeField] public int exp = 0;
+    [SerializeField] public int nowExp = 0;
     /// <summary>レベルアップに必要な経験値</summary>
-    [SerializeField] private int needExp = 100;
+    [SerializeField] public int needExp = 100;
+
+    public int MaxHitPoint = 100;
     public PlayerDate(string playerName)
     {
         this.playerName = playerName;
     }
     private void Update()
     {
-        if (level <= 50 && exp >= needExp)
+        if (level <= 50 && nowExp >= needExp)
         {
             level++;
             Debug.Log("レベルが" + level + "に上がった");
-            hitPoint += 1;
             baseAttackPower += 2;
             baseBlockPower += 2;
             if (level == 10 || level == 20 || level == 30 || level == 40)
@@ -45,7 +46,7 @@ public class PlayerDate : MonoBehaviour
                 baseBlockPower += 10;
             }
 
-            exp = exp - needExp;
+            nowExp = nowExp - needExp;
 
             float fNeedExp;
             fNeedExp = needExp * 1.25f;
