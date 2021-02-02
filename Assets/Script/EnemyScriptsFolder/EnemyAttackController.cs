@@ -7,39 +7,30 @@ public class EnemyAttackController : MonoBehaviour
 {
     /// <summary>攻撃力</summary>
     [SerializeField] public int enemyAttackPower;
-
+    PlayerDate playerDate;
+    Animator playerAnim;
     private void Start()
     {
         enemyAttackPower = this.GetComponentInParent<EnemyDate>().enemyAttackPower;
+        playerDate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDate>();
+        playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
     private void OnTriggerEnter(Collider other)
     {
-        GameObject gameObject = other.gameObject;
-        
-        if (gameObject.name == "TutorialPlayer")
+        if (other.tag == "Player")
         {
-            PlayerDate player = other.gameObject.GetComponent<PlayerDate>();
-            Animator animator = other.gameObject.GetComponent<Animator>();
-            
-            animator.SetTrigger("PlayerGetHit");
-        }
-        else if (gameObject.tag == "Player")
-        {
-            PlayerDate player = other.gameObject.GetComponent<PlayerDate>();
-            Animator animator = other.gameObject.GetComponent<Animator>();
-            animator.SetTrigger("PlayerGetHit");
-
-            if (enemyAttackPower > player.baseBlockPower)
+            playerAnim.SetTrigger("PlayerGetHit");
+            if (enemyAttackPower > playerDate.baseBlockPower)
             {
-                player.hitPoint -= enemyAttackPower;
+                playerDate.nowHitPoint -= enemyAttackPower;
                 Debug.Log(other.name + "に攻撃");
-                Debug.Log(player.name + "の残りHP : " + player.hitPoint);
+                Debug.Log(playerDate.name + "の残りHP : " + playerDate.nowHitPoint);
             }
-            else if (enemyAttackPower <= player.baseBlockPower)
+            else if (enemyAttackPower <= playerDate.baseBlockPower)
             {
-                player.hitPoint -= 1;
+                playerDate.nowHitPoint -= 1;
                 Debug.Log(other.name + "に攻撃");
-                Debug.Log(player.name + "の残りHP : " + player.hitPoint);
+                Debug.Log(playerDate.name + "の残りHP : " + playerDate.nowHitPoint);
             }
         }
     }

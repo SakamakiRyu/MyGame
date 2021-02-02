@@ -125,13 +125,8 @@ public class PlayerController : MonoBehaviour
             }
             m_anim.SetFloat("JumpMidAir", nowHeight);
         }
-        //else
-        //{
-        //    jumpState = 0;
-        //    m_anim.SetFloat("JumpMidAir", jumpState);
-        //}
         
-        if (playerDate.hitPoint <= 0)
+        if (playerDate.nowHitPoint <= 0)
         {
             Debug.Log("力尽きた、、、");
             Instantiate(playerDeadPrefab, this.transform.position, Quaternion.identity);
