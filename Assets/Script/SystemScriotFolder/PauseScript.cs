@@ -15,7 +15,6 @@ public class PauseScript : MonoBehaviour
             Time.timeScale = 0f;
             restartButton.SetActive(true);
             itemPanel.SetActive(true);
-            // mouseCursor.SetActive(true);
         }
     }
 
@@ -23,7 +22,7 @@ public class PauseScript : MonoBehaviour
     {
         itemPanel.SetActive(false);
         restartButton.SetActive(false);
-        // mouseCursor.SetActive(false);
+        Cursor.visible = false;
         Time.timeScale = 1f;
     }
 }

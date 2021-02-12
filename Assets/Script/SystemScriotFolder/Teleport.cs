@@ -8,42 +8,42 @@ public class Teleport : MonoBehaviour
     [SerializeField] Transform Destination;
 
     OperationTheCamera camera;
-    Text text;
+    Text navText;
     GameObject player;
 
     private void Start()
     {
         player = GameObject.Find("Player");
-        text = GameObject.Find("Canvas/Text").GetComponent<Text>();
+        navText = GameObject.Find("Canvas/Text").GetComponent<Text>();
         camera = GameObject.Find("CameraSwitcher").GetComponent<OperationTheCamera>();
-        text.enabled = false;
+        navText.enabled = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            text.enabled = true;
+            navText.enabled = true;
 
-            if (camera.place == OperationTheCamera.PlayerNowPlace.p_notHouse)
+            if (camera.place == OperationTheCamera.PlayerNowPlace.NotHouse)
             {
-                text.text = "E : 家に入る";
+                navText.text = "E : 家に入る";
 
                 if (Input.GetButtonDown("Use"))
                 {
                     Debug.Log("家に移動");
-                    camera.place = OperationTheCamera.PlayerNowPlace.p_house;
+                    camera.place = OperationTheCamera.PlayerNowPlace.House;
                     player.transform.position = Destination.transform.position;
                 }
             }
-            else if (camera.place == OperationTheCamera.PlayerNowPlace.p_house)
+            else if (camera.place == OperationTheCamera.PlayerNowPlace.House)
             {
-                text.text = "E : 外に出る";
+                navText.text = "E : 外に出る";
 
                 if (Input.GetButtonDown("Use"))
                 {
                     Debug.Log("外に移動");
-                    camera.place = OperationTheCamera.PlayerNowPlace.p_notHouse;
+                    camera.place = OperationTheCamera.PlayerNowPlace.NotHouse;
                     player.transform.position = Destination.transform.position;
                 }
             }
@@ -54,7 +54,7 @@ public class Teleport : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            text.enabled = false;
+            navText.enabled = false;
         }
     }
 }
