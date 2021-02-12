@@ -10,20 +10,20 @@ public class OperationTheCamera : MonoBehaviour
 
     public enum PlayerNowPlace
     {
-        p_house,
-        p_notHouse
+        House,
+        NotHouse
     }
-    public PlayerNowPlace place = PlayerNowPlace.p_notHouse;
+    public PlayerNowPlace place = PlayerNowPlace.NotHouse;
 
     private void Update()
     {
         switch (place)
         {
-            case PlayerNowPlace.p_house:
+            case PlayerNowPlace.House:
                 playerCam.Priority = 0;
                 houseCam.Priority = 1;
                 break;
-            case PlayerNowPlace.p_notHouse:
+            case PlayerNowPlace.NotHouse:
                 playerCam.Priority = 1;
                 houseCam.Priority = 0;
                 break;
