@@ -7,9 +7,11 @@ public class Teleport : MonoBehaviour
     /// <summary>移動先</summary>
     [SerializeField] Transform Destination;
 
-    OperationTheCamera camera;
+    [SerializeField] OperationTheCamera camera;
     Text navText;
     GameObject player;
+    /// <summary>テレポートのフラグ。trueの時に可能</summary>
+    bool teleport = false;
 
     private void Start()
     {
@@ -18,10 +20,9 @@ public class Teleport : MonoBehaviour
         camera = GameObject.Find("CameraSwitcher").GetComponent<OperationTheCamera>();
         navText.enabled = false;
     }
-
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
-        if (other.tag == "Player")
+        if (teleport)
         {
             navText.enabled = true;
 
@@ -47,7 +48,13 @@ public class Teleport : MonoBehaviour
                     player.transform.position = Destination.transform.position;
                 }
             }
-
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            teleport = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -55,6 +62,7 @@ public class Teleport : MonoBehaviour
         if (other.tag == "Player")
         {
             navText.enabled = false;
+            teleport = false;
         }
     }
 }
