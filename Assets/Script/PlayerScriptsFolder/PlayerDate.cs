@@ -16,23 +16,36 @@ public class PlayerDate : MonoBehaviour
     /// <summary>Playerの基礎防御力</summary>
     [SerializeField] public int baseBlockPower = 10;
     /// <summary>レベル</summary>
-    [SerializeField] private int level = 1;
+    [SerializeField] [Range(1, 50)] private int level = 1;
     /// <summary>経験値</summary>
     [SerializeField] public int nowExp = 0;
     /// <summary>レベルアップに必要な経験値</summary>
     [SerializeField] public int needExp = 100;
+    /// <summary>レベルが上がった際に再生するエフェクト</summary>
+    [SerializeField] GameObject levelUpEffect;
 
+    GameObject obj;
+    GameObject player;
+    Vector3 lvUpEffectPosition;
     public int MaxHitPoint = 100;
     public PlayerDate(string playerName)
     {
         this.playerName = playerName;
     }
-    private void Update()
+    private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    { 
         if (level <= 50 && nowExp >= needExp)
         {
+            lvUpEffectPosition = new Vector3(player.transform.position.x, player.transform.position.y + 0.75f,player.transform.position.z);
             level++;
             Debug.Log("レベルが" + level + "に上がった");
+            obj = (GameObject)Instantiate(levelUpEffect,lvUpEffectPosition, Quaternion.identity);
+            obj.transform.parent = this.transform;
             baseAttackPower += 2;
             baseBlockPower += 2;
             if (level == 10 || level == 20 || level == 30 || level == 40)

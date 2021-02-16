@@ -28,7 +28,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider m_attackTrigger = null;
     /// <summary>盾の当たり判定</summary>
     [SerializeField] Collider shieldAttackTrigger = null;
-    
+    /// <summary>レベルが上がった際に再生するエフェクト</summary>
+    [SerializeField] GameObject levelUpEffect;
+
+    GameObject obj;
     Animator m_anim = null;
     Rigidbody m_rb = null;
     PlayerDate playerDate;
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
             velo.y = m_rb.velocity.y;   // ジャンプした時の y 軸方向の速度を保持する
             m_rb.velocity = velo;   // 計算した速度ベクトルをセットする
         }
-        
+
         if (Input.GetButtonDown("Sprint") && IsGrounded())
         {
             m_movingSpeed = m_sprintSpeed;
@@ -86,9 +89,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonUp("Sprint"))
         {
-                m_movingSpeed = m_walkSpeed;
+            m_movingSpeed = m_walkSpeed;
         }
- 
+
         // ジャンプの入力を取得し、接地している時に押されていたらジャンプする
         if (Input.GetButtonDown("Jump") && IsGrounded() && action == true)
         {
@@ -105,7 +108,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && IsGrounded() && action == true)
         {
             action = false;
-            m_anim.SetBool("Block",true);
+            m_anim.SetBool("Block", true);
             m_movingSpeed = 0;
         }
         if (Input.GetButtonUp("Fire2"))
@@ -125,7 +128,7 @@ public class PlayerController : MonoBehaviour
             }
             m_anim.SetFloat("JumpMidAir", nowHeight);
         }
-        
+
         if (playerDate.nowHitPoint <= 0)
         {
             Debug.Log("力尽きた、、、");
@@ -202,7 +205,7 @@ public class PlayerController : MonoBehaviour
         m_rb.velocity = Vector3.zero;
         m_movingSpeed = 0;
     }
-    void MoveStart()   
+    void MoveStart()
     {
         action = true;
         m_movingSpeed = m_walkSpeed;
