@@ -570,6 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1610f739c1229c34186dd8bc742cb671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dethTime: 2
+  DethEffect: {fileID: 100010, guid: f7fd6827326744197a48644a23a3d321, type: 3}
 --- !u!1 &4570567840610215646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,4 +3003,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d35eca7e1f38743ada45dda14e53fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttackPower: 5
+  enemyAttackPower: 0
