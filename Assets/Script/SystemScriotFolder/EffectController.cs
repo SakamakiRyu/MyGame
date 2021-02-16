@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EffectController : MonoBehaviour
 {
+    [SerializeField] float effectPlayTime;
     private void Start()
     {
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, effectPlayTime);
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 public class CharactorController : MonoBehaviour
 {
     [SerializeField] int speed = 5;
-    [SerializeField] GameObject levelUpEffect;
+    [SerializeField] GameObject effect;
     GameObject player;
     Vector3 effPosotion;
     Rigidbody rb;
@@ -38,7 +38,7 @@ public class CharactorController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            obj = (GameObject)Instantiate(levelUpEffect, effPosotion, Quaternion.identity);
+            obj = (GameObject)Instantiate(effect, effPosotion, Quaternion.identity);
             obj.transform.parent = this.transform;
         }
     }

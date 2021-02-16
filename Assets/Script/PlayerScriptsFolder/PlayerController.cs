@@ -28,10 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider m_attackTrigger = null;
     /// <summary>盾の当たり判定</summary>
     [SerializeField] Collider shieldAttackTrigger = null;
-    /// <summary>レベルが上がった際に再生するエフェクト</summary>
-    [SerializeField] GameObject levelUpEffect;
-
-    GameObject obj;
+   
     Animator m_anim = null;
     Rigidbody m_rb = null;
     PlayerDate playerDate;

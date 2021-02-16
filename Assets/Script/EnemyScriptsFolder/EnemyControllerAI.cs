@@ -44,7 +44,7 @@ public class EnemyControllerAI : MonoBehaviour
             navMesh.SetDestination(this.transform.position);
         }
 
-        if (enemyDate.enemyHitPoint <= 0)
+        if (enemyDate.nowEnemyHP <= 0)
         {
             Debug.Log(this.gameObject.name + "を倒した");
             playerDate.nowExp += enemyDate.enemyExp;

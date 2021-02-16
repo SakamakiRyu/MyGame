@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     /// <summary>アイテムパネル</summary>
     [SerializeField] GameObject itemPanel;
     /// <summary>マウスカーソルの表示を操作するフラグ</summary>
-    [SerializeField] bool mouseCursorControlle; 
+    [SerializeField] bool mouseCursorControlle;
+    [SerializeField] GameObject miniMap;
     void Start()
     {
         if (mouseCursorControlle)
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
             Time.timeScale = 0f;
+            miniMap.SetActive(false);
             restartButton.SetActive(true);
             itemPanel.SetActive(true);
         }
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+        miniMap.SetActive(true);
         itemPanel.SetActive(false);
         restartButton.SetActive(false);
         Time.timeScale = 1f;

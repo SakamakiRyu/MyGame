@@ -22,11 +22,11 @@ public class PlayerAttackController : MonoBehaviour
             enemyAnim.SetTrigger("EnemyGetHit");
             if (playerDate.baseAttackPower + attackPower > enemyHp.enemyBlockPower)
             {
-                enemyHp.enemyHitPoint -= (attackPower + playerDate.baseAttackPower) - enemyHp.enemyBlockPower;
+                enemyHp.nowEnemyHP -= (attackPower + playerDate.baseAttackPower) - enemyHp.enemyBlockPower;
             }
             else if (playerDate.baseAttackPower + attackPower <= enemyHp.enemyBlockPower)
             {
-                enemyHp.enemyHitPoint -= 1;
+                enemyHp.nowEnemyHP -= 1;
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 /// <summary>
 /// Playerのデータ
 /// </summary>
@@ -9,8 +9,10 @@ public class PlayerDate : MonoBehaviour
 {
     /// <summary>Playerの名前</summary>
     [SerializeField] public string playerName = null;
-    /// <summary>Playerの現在の体力</summary>
-    [SerializeField] public int nowHitPoint = 100;
+    /// <summary>Playerの現在のHP</summary>
+    [SerializeField] [Range(1, 100)] public int nowHitPoint = 100;
+    /// <summary>Playerの最大HP</summary>
+    [SerializeField] public int MaxHitPoint;
     /// <summary>Playerの基礎攻撃力</summary>
     [SerializeField] public int baseAttackPower = 10;
     /// <summary>Playerの基礎防御力</summary>
@@ -23,25 +25,25 @@ public class PlayerDate : MonoBehaviour
     [SerializeField] public int needExp = 100;
     /// <summary>レベルが上がった際に再生するエフェクト</summary>
     [SerializeField] GameObject levelUpEffect;
-
+   
     GameObject obj;
     GameObject player;
     Vector3 lvUpEffectPosition;
-    public int MaxHitPoint = 100;
+    
     public PlayerDate(string playerName)
     {
         this.playerName = playerName;
     }
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");  
+        MaxHitPoint = nowHitPoint;
     }
-
     private void Update()
-    { 
+    {
         if (level <= 50 && nowExp >= needExp)
         {
-            lvUpEffectPosition = new Vector3(player.transform.position.x, player.transform.position.y + 0.75f,player.transform.position.z);
+            lvUpEffectPosition = new Vector3(player.transform.position.x, player.transform.position.y - 0.5f,player.transform.position.z);
             level++;
             Debug.Log("レベルが" + level + "に上がった");
             obj = (GameObject)Instantiate(levelUpEffect,lvUpEffectPosition, Quaternion.identity);

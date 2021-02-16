@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class EnemyDead : MonoBehaviour
 {
-    EnemySpawnController enemySpawnController;
+    [SerializeField] float dethTime;
+    [SerializeField] GameObject DethEffect;
     void Start()
     {
-        enemySpawnController = transform.root.GetComponent<EnemySpawnController>();
-        Invoke("Dead", 3);
-    }
-    void Dead()
-    {
-        Destroy(this.gameObject);
+        Instantiate(DethEffect, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject, dethTime);
     }
 }
