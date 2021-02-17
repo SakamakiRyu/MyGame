@@ -12,7 +12,7 @@ public class EnemyControllerAI : MonoBehaviour
     [SerializeField] GameObject deadPrefab;
     /// <summary>攻撃判定</summary>
     [SerializeField] Collider attackTrigger = null;
-    /// <summary>Playerの追跡を始める距離</summary>
+    /// <summary>プレイヤーの追跡を始める距離</summary>
     [SerializeField] float beginMoveDistance;
     /// <summary>敵の移動スピード</summary>
     [SerializeField] float BaseSpeed = 3;
@@ -29,19 +29,20 @@ public class EnemyControllerAI : MonoBehaviour
     {
         enemyDate = this.GetComponent<EnemyDate>();
         playerDate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDate>();
-        navMesh = GetComponent<NavMeshAgent>();
+        navMesh = this.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     void Update()
     {
         distance = Vector3.Distance(this.gameObject.transform.position, target.position);
+
         if (distance <= beginMoveDistance)
         {
             navMesh.SetDestination(target.position);
         }
-        else if (distance >= beginMoveDistance)
+        else 
         {
-            navMesh.SetDestination(this.transform.position);
+            navMesh.SetDestination(this.gameObject.transform.position);
         }
 
         if (enemyDate.nowEnemyHP <= 0)

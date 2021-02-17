@@ -16,17 +16,20 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (enemy.tag == "Enemy")
         {
-            EnemyDate enemyHp = enemy.gameObject.GetComponent<EnemyDate>();
+            EnemyDate enemyDate = enemy.gameObject.GetComponent<EnemyDate>();
             Animator enemyAnim = enemy.GetComponent<Animator>();
-
-            enemyAnim.SetTrigger("EnemyGetHit");
-            if (playerDate.baseAttackPower + attackPower > enemyHp.enemyBlockPower)
+            enemyDate.uiShow = true;
+            if (enemy.name == "Gobrin")
             {
-                enemyHp.nowEnemyHP -= (attackPower + playerDate.baseAttackPower) - enemyHp.enemyBlockPower;
+                enemyAnim.SetTrigger("EnemyGetHit");
             }
-            else if (playerDate.baseAttackPower + attackPower <= enemyHp.enemyBlockPower)
+            if (playerDate.baseAttackPower + attackPower > enemyDate.enemyBlockPower)
             {
-                enemyHp.nowEnemyHP -= 1;
+                enemyDate.nowEnemyHP -= (attackPower + playerDate.baseAttackPower) - enemyDate.enemyBlockPower;
+            }
+            else if (playerDate.baseAttackPower + attackPower <= enemyDate.enemyBlockPower)
+            {
+                enemyDate.nowEnemyHP -= 1;
             }
         }
     }
