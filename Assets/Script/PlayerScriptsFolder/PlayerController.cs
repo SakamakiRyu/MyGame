@@ -79,11 +79,13 @@ public class PlayerController : MonoBehaviour
             m_rb.velocity = velo;   // 計算した速度ベクトルをセットする
         }
 
+        // 地面と接地している時に走る
         if (Input.GetButtonDown("Sprint") && IsGrounded())
         {
             m_movingSpeed = m_sprintSpeed;
         }
-
+        
+        // 走る(ボタン)が離された時にスピードをもとに戻す
         if (Input.GetButtonUp("Sprint"))
         {
             m_movingSpeed = m_walkSpeed;
@@ -129,6 +131,7 @@ public class PlayerController : MonoBehaviour
         if (playerDate.nowHitPoint <= 0)
         {
             Debug.Log("力尽きた、、、");
+            // ゲームオーバーのTimeLineを追加
             Instantiate(playerDeadPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

@@ -10,6 +10,7 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] GameObject enemy;
     EnemyGenerate enemyGenerate;
     bool start = true;
+
     private void Start()
     {
         enemyGenerate = GameObject.Find("TutorialEnemy").GetComponent<EnemyGenerate>();

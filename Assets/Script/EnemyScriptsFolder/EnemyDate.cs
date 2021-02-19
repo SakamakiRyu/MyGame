@@ -29,10 +29,10 @@ public class EnemyDate : MonoBehaviour
 
     private void Start()
     {
+        EnemyStatusDetector(this.enemyName);
         MaxHP = nowEnemyHP;
         hpSlider.maxValue = MaxHP;
         lvText.text = "Lv : " + enemyLevel;
-        EnemyStatusDetector(this.enemyName);
         uiCanvas.enabled = false;
     }
     private void Update()
