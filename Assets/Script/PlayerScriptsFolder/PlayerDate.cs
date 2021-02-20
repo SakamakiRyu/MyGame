@@ -50,6 +50,7 @@ public class PlayerDate : MonoBehaviour
             obj.transform.parent = this.transform;
             baseAttackPower += 2;
             baseBlockPower += 2;
+            nowHitPoint = 100; // レベルが上がったらHPを最大まで回復する
             if (level == 10 || level == 20 || level == 30 || level == 40)
             {
                 baseAttackPower += 1;
