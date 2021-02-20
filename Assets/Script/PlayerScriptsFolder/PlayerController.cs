@@ -130,7 +130,8 @@ public class PlayerController : MonoBehaviour
 
         if (playerDate.nowHitPoint <= 0)
         {
-            Debug.Log("力尽きた、、、");
+            playerDate.nowHitPoint = 0;
+            Debug.Log("力尽きた");
             // ゲームオーバーのTimeLineを追加
             Instantiate(playerDeadPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: par2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4706,7 +4706,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 19800002}
   - component: {fileID: 19900002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: par1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9401,7 +9401,7 @@ GameObject:
   - component: {fileID: 400004}
   - component: {fileID: 19800004}
   - component: {fileID: 19900004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ring1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14114,7 +14114,7 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 19800006}
   - component: {fileID: 19900006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LvUp1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18762,8 +18762,8 @@ GameObject:
   m_Component:
   - component: {fileID: 400008}
   - component: {fileID: 8148128904101723852}
-  m_Layer: 0
-  m_Name: Eff_LvUp_1
+  m_Layer: 10
+  m_Name: LvUpEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

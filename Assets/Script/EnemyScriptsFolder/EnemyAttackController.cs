@@ -7,8 +7,11 @@ public class EnemyAttackController : MonoBehaviour
 {
     /// <summary>攻撃力</summary>
     [SerializeField] public int enemyAttackPower;
+
+    [SerializeField] GameObject attackEffect;
     PlayerDate playerDate;
     Animator playerAnim;
+
     private void Start()
     {
         enemyAttackPower = this.GetComponentInParent<EnemyDate>().enemyAttackPower;
@@ -17,6 +20,11 @@ public class EnemyAttackController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Ground" && attackEffect)
+        {
+            Instantiate(attackEffect, other.transform.position, Quaternion.identity);
+        }
+
         if (other.tag == "Player")
         {
             playerAnim.SetTrigger("PlayerGetHit");

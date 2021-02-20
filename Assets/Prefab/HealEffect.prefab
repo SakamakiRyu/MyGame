@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ring2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4733,7 +4733,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 19800002}
   - component: {fileID: 19900002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ring3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9446,7 +9446,7 @@ GameObject:
   - component: {fileID: 400004}
   - component: {fileID: 19800004}
   - component: {fileID: 19900004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: glitter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14150,7 +14150,7 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 19800006}
   - component: {fileID: 19900006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: par3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18853,8 +18853,8 @@ GameObject:
   m_Component:
   - component: {fileID: 400008}
   - component: {fileID: -3862316637466266148}
-  m_Layer: 0
-  m_Name: Eff_Heal_2
+  m_Layer: 10
+  m_Name: HealEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18899,7 +18899,7 @@ GameObject:
   - component: {fileID: 400010}
   - component: {fileID: 19800008}
   - component: {fileID: 19900008}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: par2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23612,7 +23612,7 @@ GameObject:
   - component: {fileID: 400012}
   - component: {fileID: 19800010}
   - component: {fileID: 19900010}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ring1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28334,7 +28334,7 @@ GameObject:
   - component: {fileID: 400014}
   - component: {fileID: 19800012}
   - component: {fileID: 19900012}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: par1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

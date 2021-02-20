@@ -10,7 +10,7 @@ public class PlayerDate : MonoBehaviour
     /// <summary>Playerの名前</summary>
     [SerializeField] public string playerName = null;
     /// <summary>Playerの現在のHP</summary>
-    [SerializeField] [Range(1, 100)] public int nowHitPoint = 100;
+    [SerializeField] [Range(0, 100)] public int nowHitPoint = 100;
     /// <summary>Playerの最大HP</summary>
     [SerializeField] public int MaxHitPoint;
     /// <summary>Playerの基礎攻撃力</summary>

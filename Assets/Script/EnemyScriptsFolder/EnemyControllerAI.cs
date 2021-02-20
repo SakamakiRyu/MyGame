@@ -16,14 +16,12 @@ public class EnemyControllerAI : MonoBehaviour
     [SerializeField] float beginMoveDistance;
     /// <summary>敵の移動スピード</summary>
     [SerializeField] float BaseSpeed = 3;
-
-    /// <summary>追跡するターゲット</summary>
+   
     Transform target;
     EnemyDate enemyDate;
     PlayerDate playerDate;
     NavMeshAgent navMesh;
-    /// <summary>プレイヤーとの距離</summary>
-    float distance;
+    float distance = 100;
 
     void Start()
     {
@@ -34,23 +32,30 @@ public class EnemyControllerAI : MonoBehaviour
     }
     void Update()
     {
-        distance = Vector3.Distance(this.gameObject.transform.position, target.position);
+        if (target)
+        {
+            distance = Vector3.Distance(this.gameObject.transform.position, target.position);
 
-        if (distance <= beginMoveDistance)
-        {
-            navMesh.SetDestination(target.position);
-        }
-        else 
-        {
-            navMesh.SetDestination(this.gameObject.transform.position);
-        }
+            if (distance <= beginMoveDistance)
+            {
+                navMesh.SetDestination(target.position);
+            }
+            else
+            {
+                navMesh.SetDestination(this.gameObject.transform.position);
+            }
 
-        if (enemyDate.nowEnemyHP <= 0)
+            if (enemyDate.nowEnemyHP <= 0)
+            {
+                Debug.Log(this.gameObject.name + "を倒した");
+                playerDate.nowExp += enemyDate.enemyExp;
+                GenerateDeadMotion();
+                Destroy(this.gameObject);
+            }
+        }
+        else
         {
-            Debug.Log(this.gameObject.name + "を倒した");
-            playerDate.nowExp += enemyDate.enemyExp;
-            Instantiate(deadPrefab, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            distance = 50;
         }
     }
     private void LateUpdate()
@@ -78,6 +83,17 @@ public class EnemyControllerAI : MonoBehaviour
         if (attackTrigger)
         {
             attackTrigger.gameObject.SetActive(false);
+        }
+    }
+    void GenerateDeadMotion()
+    {
+        if (this.gameObject.name == "Gobrin")
+        {
+            Instantiate(deadPrefab, this.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(deadPrefab, this.transform.position, Quaternion.Euler(deadPrefab.transform.position));
         }
     }
 }
