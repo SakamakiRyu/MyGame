@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject itemPanel;
     /// <summary>マウスカーソルの表示を操作するフラグ</summary>
     [SerializeField] bool mouseCursorControlle;
+    /// <summary>ゲーム進行のアシストをするテキスト</summary>
+    [SerializeField] Text assistText;
+    /// <summary>ミニマップ</summary>
     [SerializeField] GameObject miniMap;
     void Start()
     {
