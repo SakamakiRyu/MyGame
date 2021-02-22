@@ -28,17 +28,14 @@ public class EnemyAttackController : MonoBehaviour
         if (other.tag == "Player")
         {
             playerAnim.SetTrigger("PlayerGetHit");
+
             if (enemyAttackPower > playerDate.baseBlockPower)
             {
                 playerDate.nowHitPoint -= enemyAttackPower;
-                Debug.Log(other.name + "に攻撃");
-                Debug.Log(playerDate.name + "の残りHP : " + playerDate.nowHitPoint);
             }
             else if (enemyAttackPower <= playerDate.baseBlockPower)
             {
                 playerDate.nowHitPoint -= 1;
-                Debug.Log(other.name + "に攻撃");
-                Debug.Log(playerDate.name + "の残りHP : " + playerDate.nowHitPoint);
             }
         }
     }

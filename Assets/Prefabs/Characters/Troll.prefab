@@ -1898,7 +1898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttackPower: 5
-  attackEffect: {fileID: 0}
+  attackEffect: {fileID: 100006, guid: 88b2bde0b7d1e4b31946657e02e4c505, type: 3}
 --- !u!1 &2551577195472691654
 GameObject:
   m_ObjectHideFlags: 0

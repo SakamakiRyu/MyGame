@@ -28,7 +28,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider m_attackTrigger = null;
     /// <summary>盾の当たり判定</summary>
     [SerializeField] Collider shieldAttackTrigger = null;
-   
+    /// <summary>攻撃時に鳴らすサウンド</summary>
+    [SerializeField] AudioClip attackVoice;
+
+    AudioSource audioSource;
     Animator m_anim = null;
     Rigidbody m_rb = null;
     PlayerDate playerDate;
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
         m_rb = GetComponent<Rigidbody>();
         m_anim = GetComponent<Animator>();
         playerDate = GetComponent<PlayerDate>();
+        audioSource = GetComponent<AudioSource>();
         m_movingSpeed = m_walkSpeed;
     }
     void Update()
@@ -102,6 +106,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && IsGrounded())
         {
             m_anim.SetTrigger("Attack");
+           
         }
 
         if (Input.GetButtonDown("Fire2") && IsGrounded() && action == true)
@@ -210,5 +215,10 @@ public class PlayerController : MonoBehaviour
     {
         action = true;
         m_movingSpeed = m_walkSpeed;
+    }
+    public void AudioPlay(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }
