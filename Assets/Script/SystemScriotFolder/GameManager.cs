@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     /// <summary>マウスカーソルの表示を操作するフラグ</summary>
     [SerializeField] bool mouseCursorControlle;
     /// <summary>ゲーム進行のアシストをするテキスト</summary>
-    [SerializeField] Text assistText;
+    [SerializeField] Text naviText;
     /// <summary>ミニマップ</summary>
     [SerializeField] GameObject miniMap;
     /// <summary>モブ戦闘中に流れるBGM</summary>
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip usuallyBGM;
     /// <summary>設定画面に移行する時の鳴らすSE</summary>
     [SerializeField] AudioClip editSE;
-
+  
     /// <summary>再生時間を保存しておく変数</summary>
     float bgmTime;
     AudioSource source;
@@ -47,13 +47,13 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }
-            Time.timeScale = 0f;
-            miniMap.SetActive(false);
+            Time.timeScale = 0f; //ゲームの進行スピードを止める
+            miniMap.SetActive(false); 
             restartButton.SetActive(true);
             itemPanel.SetActive(true);
-            source.PlayOneShot(editSE);
-            bgmTime = source.time;
-            source.Stop();
+            source.PlayOneShot(editSE); // 設定画面移行のSEを鳴らす
+            bgmTime = source.time; // BGMの再生時間を保存する
+            source.Stop(); // BGMを止める
         }
     }
     /// <summary>
@@ -69,8 +69,8 @@ public class GameManager : MonoBehaviour
         miniMap.SetActive(true);
         itemPanel.SetActive(false);
         restartButton.SetActive(false);
-        Time.timeScale = 1f;
-        source.time = bgmTime;
-        source.Play();
+        Time.timeScale = 1f; // ゲームの進行スピードを通常に戻す
+        source.time = bgmTime; // 保存した再生時間を設定する
+        source.Play(); // BGMを再生する
     }
 }

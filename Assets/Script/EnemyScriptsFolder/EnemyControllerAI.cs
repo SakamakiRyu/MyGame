@@ -18,11 +18,15 @@ public class EnemyControllerAI : MonoBehaviour
     [SerializeField] float BaseSpeed = 3;
     /// <summary>ボスの強攻撃の際に発生させるエフェクト</summary>
     [SerializeField] GameObject attackEffect = null;
+    /// <summary>攻撃時に再生するSE</summary>
+    [SerializeField] AudioClip attackSE;
+    /// <summary>Playerのトランスフォームを保存しておく変数</summary>
+    Transform target; 
 
-    Transform target;
     EnemyDate enemyDate;
     PlayerDate playerDate;
     NavMeshAgent navMesh;
+    AudioSource source;
     float distance = 100;
 
     void Start()
@@ -31,13 +35,13 @@ public class EnemyControllerAI : MonoBehaviour
         playerDate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDate>();
         navMesh = this.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        source = GetComponent<AudioSource>();
     }
     void Update()
     {
         if (target)
         {
             distance = Vector3.Distance(this.gameObject.transform.position, target.position);
-
             if (distance <= beginMoveDistance)
             {
                 navMesh.SetDestination(target.position);
@@ -90,6 +94,10 @@ public class EnemyControllerAI : MonoBehaviour
     void PlayEffect()
     {
         Instantiate(attackEffect, this.attackTrigger.transform.position, Quaternion.identity);
+    }
+    void PlaySE(AudioClip clip)
+    {
+        source.PlayOneShot(clip);
     }
     void GenerateDeadMotion()
     {

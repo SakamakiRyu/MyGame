@@ -23,14 +23,14 @@ public class EnemyAttackController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (playerController.guard)
+            if (playerController.guard) // Playerがガード状態の時はHPを１減らす
             {
                 playerDate.nowHitPoint -= 1;
             }
-            else
+            else // ガード状態じゃない時は、被弾アニメーションをして各々のステータスに応じたダメージをうける
             {
                 playerAnim.SetTrigger("PlayerGetHit");
-                if (enemyAttackPower > playerDate.baseBlockPower)
+                if (enemyAttackPower > playerDate.baseBlockPower) 
                 {
                     playerDate.nowHitPoint -= enemyAttackPower;
                 }

@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 2551577194688220800}
   - component: {fileID: 2854004994434072296}
   - component: {fileID: 5007608085433371720}
+  - component: {fileID: 8154124036894336868}
   m_Layer: 0
   m_Name: Troll
   m_TagString: Enemy
@@ -598,6 +599,7 @@ MonoBehaviour:
   beginMoveDistance: 20
   BaseSpeed: 3
   attackEffect: {fileID: 100006, guid: 88b2bde0b7d1e4b31946657e02e4c505, type: 3}
+  attackSE: {fileID: 0}
 --- !u!195 &5007608085433371720
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -620,6 +622,102 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!82 &8154124036894336868
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551577194688220801}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2551577194694607947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,7 +1997,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttackPower: 5
-  attackEffect: {fileID: 100006, guid: 88b2bde0b7d1e4b31946657e02e4c505, type: 3}
 --- !u!1 &2551577195472691654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,7 +4056,7 @@ GameObject:
   - component: {fileID: 7863234192325273876}
   - component: {fileID: 7725059703226288561}
   m_Layer: 8
-  m_Name: EnemyCircle
+  m_Name: RedCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3973,7 +4070,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5004020763664292949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00783347, y: 4.335561, z: -0.006500294}
+  m_LocalPosition: {x: 0.00783347, y: 10, z: -0.006500294}
   m_LocalScale: {x: 2, y: 0.01, z: 2}
   m_Children: []
   m_Father: {fileID: 2551577194688220807}
@@ -4119,7 +4216,7 @@ GameObject:
   - component: {fileID: 9138173521233091735}
   - component: {fileID: 8886490862064558504}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: TrollInfomation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
