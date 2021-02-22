@@ -16,7 +16,9 @@ public class EnemyControllerAI : MonoBehaviour
     [SerializeField] float beginMoveDistance;
     /// <summary>敵の移動スピード</summary>
     [SerializeField] float BaseSpeed = 3;
-   
+    /// <summary>ボスの強攻撃の際に発生させるエフェクト</summary>
+    [SerializeField] GameObject attackEffect = null;
+
     Transform target;
     EnemyDate enemyDate;
     PlayerDate playerDate;
@@ -84,6 +86,10 @@ public class EnemyControllerAI : MonoBehaviour
         {
             attackTrigger.gameObject.SetActive(false);
         }
+    }
+    void PlayEffect()
+    {
+        Instantiate(attackEffect, this.attackTrigger.transform.position, Quaternion.identity);
     }
     void GenerateDeadMotion()
     {

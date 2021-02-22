@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider shieldAttackTrigger = null;
     /// <summary>攻撃時に鳴らすサウンド</summary>
     [SerializeField] AudioClip attackVoice;
+    /// <summary>Playerがガードをしているかのフラグ</summary>
+    [SerializeField] public bool guard = false; 
 
     AudioSource audioSource;
     Animator m_anim = null;
@@ -112,11 +114,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && IsGrounded() && action == true)
         {
             action = false;
+            guard = true;
             m_anim.SetBool("Block", true);
             m_movingSpeed = 0;
         }
         if (Input.GetButtonUp("Fire2"))
         {
+            guard = false;
             action = true;
             m_anim.SetBool("Block", false);
         }
@@ -218,7 +222,6 @@ public class PlayerController : MonoBehaviour
     }
     public void AudioPlay(AudioClip clip)
     {
-        audioSource.clip = clip;
-        audioSource.Play();
+        audioSource.PlayOneShot(clip);
     }
 }

@@ -34462,6 +34462,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.3
+    functionName: AudioPlay
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 94fe73dbb1452724f82d14a432a5560d,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.4
     functionName: EndAttack
     data: 
