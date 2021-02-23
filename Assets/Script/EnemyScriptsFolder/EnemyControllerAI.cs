@@ -21,14 +21,18 @@ public class EnemyControllerAI : MonoBehaviour
     /// <summary>攻撃時に再生するSE</summary>
     [SerializeField] AudioClip attackSE;
     /// <summary>Playerのトランスフォームを保存しておく変数</summary>
-    Transform target; 
+    Transform target;
+    /// <summary>自身の音をならすSource</summary>
+    AudioSource source;
+    /// <summary>ゲームのBGMを管理するSource</summary>
+    GameManager gameManager;
 
     EnemyDate enemyDate;
     PlayerDate playerDate;
     NavMeshAgent navMesh;
-    AudioSource source;
     float distance = 100;
-
+    bool nowBattle = false;
+    
     void Start()
     {
         enemyDate = this.GetComponent<EnemyDate>();
@@ -36,6 +40,7 @@ public class EnemyControllerAI : MonoBehaviour
         navMesh = this.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         source = GetComponent<AudioSource>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {
@@ -45,16 +50,19 @@ public class EnemyControllerAI : MonoBehaviour
             if (distance <= beginMoveDistance)
             {
                 navMesh.SetDestination(target.position);
+                nowBattle = true;
             }
             else
             {
                 navMesh.SetDestination(this.gameObject.transform.position);
+                nowBattle = false;
             }
 
             if (enemyDate.nowEnemyHP <= 0)
             {
                 Debug.Log(this.gameObject.name + "を倒した");
                 playerDate.nowExp += enemyDate.enemyExp;
+                nowBattle = false;
                 GenerateDeadMotion();
                 Destroy(this.gameObject);
             }
@@ -99,6 +107,9 @@ public class EnemyControllerAI : MonoBehaviour
     {
         source.PlayOneShot(clip);
     }
+    /// <summary>
+    /// 死にモーションを生成するメソッド
+    /// </summary>
     void GenerateDeadMotion()
     {
         if (this.gameObject.name == "Gobrin")
