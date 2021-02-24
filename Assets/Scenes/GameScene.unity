@@ -2500,7 +2500,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7768595, y: 1}
+    m_SensorSize: {x: 1.7756065, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2962,7 +2962,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516492162}
-  m_LocalRotation: {x: 0.075585194, y: -0.0000000074292683, z: 5.631536e-10, w: 0.9971394}
+  m_LocalRotation: {x: 0.07558518, y: 0.000000010506571, z: -7.964194e-10, w: 0.9971394}
   m_LocalPosition: {x: 3.44, y: 2.12, z: -4.8199997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3395,7 +3395,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7768595, y: 1}
+    m_SensorSize: {x: 1.7756065, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6023,7 +6023,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7768595, y: 1}
+    m_SensorSize: {x: 1.7756065, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6039,7 +6039,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060421269}
-  m_LocalRotation: {x: 0.07558519, y: -1.7712754e-15, z: 1.8977741e-16, w: 0.9971394}
+  m_LocalRotation: {x: 0.07558518, y: 0.0000000074292665, z: -5.631534e-10, w: 0.9971394}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7417,7 +7417,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7768595, y: 1}
+    m_SensorSize: {x: 1.7756065, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7635,7 +7635,7 @@ PrefabInstance:
     - target: {fileID: 4081293817653910158, guid: 350be77f5c332e545bbf3e10509530e5,
         type: 3}
       propertyPath: m_Name
-      value: 'Gobrin '
+      value: Gobrin
       objectReference: {fileID: 0}
     - target: {fileID: 4081293817653910158, guid: 350be77f5c332e545bbf3e10509530e5,
         type: 3}

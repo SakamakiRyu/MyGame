@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using System.Linq;
 public class GameManager : MonoBehaviour
 {
     /// <summary>ゲームを再開するボタン</summary>
@@ -25,9 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip se_edit;
     /// <summary>再生時間を保存しておく変数</summary>
     float bgmTime;
-    
-    AudioSource source;
    
+    AudioSource source;
+    
+    
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -47,15 +49,14 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }
-            Time.timeScale = 0f; //ゲームの進行スピードを止める
-            miniMap.SetActive(false); 
+            Time.timeScale = 0f; // ゲームの進行スピードを止める
+            miniMap.SetActive(false);
             restartButton.SetActive(true);
             itemPanel.SetActive(true);
             source.PlayOneShot(se_edit); // 設定画面移行のSEを鳴らす
             bgmTime = source.time; // BGMの再生時間を保存する
             source.Stop(); // BGMを止める
         }
-        
     }
     /// <summary>
     /// ゲームを再開する
