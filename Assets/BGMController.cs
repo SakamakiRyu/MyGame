@@ -15,12 +15,6 @@ public class BGMController : MonoBehaviour
         m_audio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PlayDefaultBGM(int instanceId)
     {
         Debug.Log("play defalut bgm");

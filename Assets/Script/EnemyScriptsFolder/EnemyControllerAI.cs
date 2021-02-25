@@ -46,17 +46,23 @@ public class EnemyControllerAI : MonoBehaviour
         if (target)
         {
             distance = Vector3.Distance(this.gameObject.transform.position, target.position);
-            if (distance <= beginMoveDistance && !nowBattle)
+            if (distance <= beginMoveDistance)
             {
                 navMesh.SetDestination(target.position);
+                if (!nowBattle)
+                {
+                    GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayCombatBGM(this.gameObject.GetInstanceID());
+                }
                 nowBattle = true;
-                GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayCombatBGM(this.gameObject.GetInstanceID());
             }
-            else if (distance > beginMoveDistance && nowBattle)
+            else if (distance > beginMoveDistance)
             {
                 navMesh.SetDestination(this.gameObject.transform.position);
+                if (nowBattle)
+                {
+                    GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
+                }
                 nowBattle = false;
-                GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
             }
 
             if (enemyDate.nowEnemyHP <= 0)
@@ -66,6 +72,7 @@ public class EnemyControllerAI : MonoBehaviour
                 nowBattle = false;
                 GenerateDeadMotion();
                 Destroy(this.gameObject);
+                GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
             }
         }
         else
