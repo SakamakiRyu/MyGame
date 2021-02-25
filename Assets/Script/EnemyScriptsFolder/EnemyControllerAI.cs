@@ -20,17 +20,16 @@ public class EnemyControllerAI : MonoBehaviour
     [SerializeField] GameObject attackEffect = null;
     /// <summary>攻撃時に再生するSE</summary>
     [SerializeField] AudioClip attackSE;
-    /// <summary>Playerのトランスフォームを保存しておく変数</summary>
+    /// <summary>プレイヤーのトランスフォームを保存しておく変数</summary>
     Transform target;
     /// <summary>自身の音をならすSource</summary>
     AudioSource source;
-    /// <summary>ゲームのBGMを管理するSource</summary>
-    GameManager gameManager;
+    /// <summary>プレイヤーとの距離</summary>
+    float distance = 100;
 
     EnemyDate enemyDate;
     PlayerDate playerDate;
     NavMeshAgent navMesh;
-    float distance = 100;
     bool nowBattle = false;
     
     void Start()
@@ -40,7 +39,7 @@ public class EnemyControllerAI : MonoBehaviour
         navMesh = this.GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         source = GetComponent<AudioSource>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        enemyAnim.SetFloat("AttackDistance", distance);
     }
     void Update()
     {
