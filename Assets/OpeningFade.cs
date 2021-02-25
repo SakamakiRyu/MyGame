@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class OpeningFade : MonoBehaviour
 {
-    float time;
+    [SerializeField] float time;
     private void Update()
     {
         time += Time.deltaTime * 1.0f;
-        if (Input.GetButtonDown("Jump"))
+        if (Input.anyKey)
         {
-            time = 4;
+            time += 6;
         }
-        if (time >= 4)
+        if (time >= 6)
         {
             SceneManager.LoadScene("TitleScene");
         }
