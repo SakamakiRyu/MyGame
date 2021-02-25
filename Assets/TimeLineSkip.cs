@@ -11,7 +11,7 @@ public class TimeLineSkip : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            director.playableGraph.GetRootPlayable(0).SetSpeed(300.0f);
+            director.playableGraph.GetRootPlayable(0).SetSpeed(400.0f);
         }
     }
 }
