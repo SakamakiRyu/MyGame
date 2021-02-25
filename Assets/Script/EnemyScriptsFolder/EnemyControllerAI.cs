@@ -47,15 +47,17 @@ public class EnemyControllerAI : MonoBehaviour
         if (target)
         {
             distance = Vector3.Distance(this.gameObject.transform.position, target.position);
-            if (distance <= beginMoveDistance)
+            if (distance <= beginMoveDistance && !nowBattle)
             {
                 navMesh.SetDestination(target.position);
                 nowBattle = true;
+                GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayCombatBGM(this.gameObject.GetInstanceID());
             }
-            else
+            else if (distance > beginMoveDistance && nowBattle)
             {
                 navMesh.SetDestination(this.gameObject.transform.position);
                 nowBattle = false;
+                GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
             }
 
             if (enemyDate.nowEnemyHP <= 0)

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     float bgmTime;
    
     AudioSource source;
-    
+  
     
     void Start()
     {
