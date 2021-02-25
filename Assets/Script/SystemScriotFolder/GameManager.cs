@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text naviText;
     /// <summary>ミニマップ</summary>
     [SerializeField] GameObject miniMap;
-    
+
+    StatusShow show;
     float bgmTime;
     
     void Start()
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false; // ゲームが始まったらマウスカーソルの表示を消す
             Cursor.lockState = CursorLockMode.Locked; // マウスカーソルを画面中央に固定する
         }
+        show = GameObject.Find("Menu").GetComponent<StatusShow>();
     }
 
     void Update()
@@ -42,7 +44,6 @@ public class GameManager : MonoBehaviour
             restartButton.SetActive(true);
             itemPanel.SetActive(true);
         }
-        
     }
     /// <summary>
     /// ゲームを再開する
