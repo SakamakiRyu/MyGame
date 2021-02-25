@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text naviText;
     /// <summary>ミニマップ</summary>
     [SerializeField] GameObject miniMap;
-  
+    
     float bgmTime;
     
     void Start()
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
             restartButton.SetActive(true);
             itemPanel.SetActive(true);
         }
+        
     }
     /// <summary>
     /// ゲームを再開する

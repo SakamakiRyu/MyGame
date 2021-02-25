@@ -28,8 +28,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider m_attackTrigger = null;
     /// <summary>盾の当たり判定</summary>
     [SerializeField] Collider shieldAttackTrigger = null;
-    /// <summary>攻撃時に鳴らすサウンド</summary>
-    [SerializeField] AudioClip attackVoice;
     /// <summary>Playerがガードをしているかのフラグ</summary>
     [SerializeField] public bool guard = false; 
 

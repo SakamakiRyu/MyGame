@@ -31,6 +31,7 @@ public class EnemyControllerAI : MonoBehaviour
     PlayerDate playerDate;
     NavMeshAgent navMesh;
     bool nowBattle = false;
+    bool subsuc = false;
     
     void Start()
     {
@@ -43,6 +44,11 @@ public class EnemyControllerAI : MonoBehaviour
     }
     void Update()
     {
+        if (!subsuc)
+        {
+            GameObject.Find("NaviText").GetComponent<NaviTextScript>()?.AddGameObject(this.gameObject);
+            subsuc = true;
+        }
         if (target)
         {
             distance = Vector3.Distance(this.gameObject.transform.position, target.position);
@@ -51,7 +57,7 @@ public class EnemyControllerAI : MonoBehaviour
                 navMesh.SetDestination(target.position);
                 if (!nowBattle)
                 {
-                    GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayCombatBGM(this.gameObject.GetInstanceID());
+                    GameObject.Find("GameManager").GetComponent<BGMController>()?.PlayCombatBGM(this.gameObject.GetInstanceID());
                 }
                 nowBattle = true;
             }
@@ -60,7 +66,7 @@ public class EnemyControllerAI : MonoBehaviour
                 navMesh.SetDestination(this.gameObject.transform.position);
                 if (nowBattle)
                 {
-                    GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
+                    GameObject.Find("GameManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
                 }
                 nowBattle = false;
             }
@@ -72,7 +78,8 @@ public class EnemyControllerAI : MonoBehaviour
                 nowBattle = false;
                 GenerateDeadMotion();
                 Destroy(this.gameObject);
-                GameObject.Find("BgmManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
+                GameObject.Find("GameManager").GetComponent<BGMController>()?.PlayDefaultBGM(this.gameObject.GetInstanceID());
+                GameObject.Find("NaviText").GetComponent<NaviTextScript>()?.RemoveGameObject(this.gameObject);
             }
         }
         else

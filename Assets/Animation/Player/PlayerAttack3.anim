@@ -88697,6 +88697,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.33333334
+    functionName: AudioPlay
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 94fe73dbb1452724f82d14a432a5560d,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.36666667
     functionName: AudioPlay
     data: 
@@ -88709,6 +88717,14 @@ AnimationClip:
     functionName: AudioPlay
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 10da62681293bc046ae5ab235b873606,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.4666667
+    functionName: AudioPlay
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 94fe73dbb1452724f82d14a432a5560d,
       type: 3}
     floatParameter: 0
     intParameter: 0

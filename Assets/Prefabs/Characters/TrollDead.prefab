@@ -368,7 +368,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttackPower: 0
-  attackEffect: {fileID: 0}
 --- !u!1 &4842742585489380132
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +984,7 @@ GameObject:
   - component: {fileID: 4837606227582450762}
   - component: {fileID: 4783219750827936982}
   - component: {fileID: 5725409014164405040}
+  - component: {fileID: 4628358436164660448}
   m_Layer: 0
   m_Name: TrollDead
   m_TagString: Enemy
@@ -1048,6 +1048,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dethTime: 2
   DethEffect: {fileID: 100010, guid: f7fd6827326744197a48644a23a3d321, type: 3}
+--- !u!114 &4628358436164660448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4842899782967438878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b90302c280ae74aa00f5effaf4f12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4842900186079976988
 GameObject:
   m_ObjectHideFlags: 0

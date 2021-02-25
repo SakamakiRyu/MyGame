@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPower: 1
+  swordAttackSE: {fileID: 0}
 --- !u!1 &8665835327078945934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +2100,6 @@ MonoBehaviour:
     type: 3}
   m_attackTrigger: {fileID: 8665835327077349401}
   shieldAttackTrigger: {fileID: 8665835327943303545}
-  attackVoice: {fileID: 8300000, guid: d4cdd90582596a24da9709cba733a955, type: 3}
   guard: 0
 --- !u!114 &8665835327710861374
 MonoBehaviour:
@@ -3140,6 +3140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPower: 5
+  swordAttackSE: {fileID: 0}
 --- !u!1 &8665835327949966453
 GameObject:
   m_ObjectHideFlags: 0
