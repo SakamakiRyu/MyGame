@@ -13,7 +13,7 @@ public class PlayerInformation : MonoBehaviour
     [SerializeField] Slider expSlider;
     /// <summary>Playerの経験値情報のテキストの</summary>
     [SerializeField] Text expText;
-   
+    [SerializeField] Canvas stusasCanvas;
     PlayerDate playerDate;
     private void Start()
     {

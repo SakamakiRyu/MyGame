@@ -17,8 +17,8 @@ public class StatusShow : MonoBehaviour
     public void Update()
     {
         level.text ="レベル : " + date.level.ToString();
-        hitPoint.text = "体力   : " + date.nowHitPoint + " / " + date.MaxHitPoint;
-        exp.text = "経験値  : " + date.nowExp + " / " + date.needExp;
+        hitPoint.text = "体力  : " + date.nowHitPoint + " / " + date.MaxHitPoint;
+        exp.text = "経験値 : " + date.nowExp + " / " + date.needExp;
         attackPower.text = "攻撃力 : " + date.baseAttackPower.ToString();
         blockPower.text = "防御力 : " + date.baseBlockPower.ToString();
     }

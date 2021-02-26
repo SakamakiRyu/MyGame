@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text naviText;
     /// <summary>ミニマップ</summary>
     [SerializeField] GameObject miniMap;
+    /// <summary>ステータスパネル</summary>
+    [SerializeField] GameObject statusPanel;
 
     StatusShow show;
     float bgmTime;
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
             Time.timeScale = 0f; // ゲームの進行スピードを止める
+            statusPanel.SetActive(true);
             miniMap.SetActive(false);
             restartButton.SetActive(true);
             itemPanel.SetActive(true);
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+        statusPanel.SetActive(false);
         miniMap.SetActive(true);
         itemPanel.SetActive(false);
         restartButton.SetActive(false);
