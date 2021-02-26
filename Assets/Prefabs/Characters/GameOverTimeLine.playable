@@ -89,7 +89,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
-    m_DisplayName: LOSE00
+    m_DisplayName: MyGame_Anim_GameOver1
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: c7df2ec8d896a4a15abc7636d440631b, type: 3}
+  m_Clip: {fileID: 7400000, guid: eddbd32662a662a45ad18d616250ac3f, type: 2}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
   m_Name: AudioPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: d7c4040670e28478fbd49fd9b6060ac8, type: 3}
+  m_Clip: {fileID: 8300000, guid: 74bc16a2618cc514992de17847619bc3, type: 3}
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:
