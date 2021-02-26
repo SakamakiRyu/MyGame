@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dethTime: 2
-  DethEffect: {fileID: 100010, guid: f7fd6827326744197a48644a23a3d321, type: 3}
+  DethEffect: {fileID: 100016, guid: 35e2a05a45d65e1408a4d9dd98d4e89f, type: 3}
 --- !u!1 &4570567840610215646
 GameObject:
   m_ObjectHideFlags: 0

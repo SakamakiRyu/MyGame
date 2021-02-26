@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_isGroundedLength = 1.1f;
     /// <summary>Playerの死ぬモーションを入れる</summary>
     [SerializeField] GameObject playerDeadPrefab = null;
-    /// <summary>剣の当たり判定</summary>
+     /// <summary>剣の当たり判定</summary>
     [SerializeField] Collider m_attackTrigger = null;
     /// <summary>盾の当たり判定</summary>
     [SerializeField] Collider shieldAttackTrigger = null;

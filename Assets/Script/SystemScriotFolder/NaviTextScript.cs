@@ -13,6 +13,13 @@ public class NaviTextScript : MonoBehaviour
     {
         naviText.text = "討伐目標";
     }
+    private void Update()
+    {
+        if (gobrins.Count == 0 && trolls.Count == 0)
+        {
+            GameClearShow();
+        }
+    }
     public void AddGameObject(GameObject gameObject)
     {
         if (gameObject.name == "Gobrin")
@@ -39,5 +46,10 @@ public class NaviTextScript : MonoBehaviour
             trolls.Remove(gameObject);
             naviText.text = "討伐対象" + "\n" + "ゴブリン : " + gobrins.Count.ToString() + " 体\n" + "トロール : " + trolls.Count.ToString() + " 体";
         }
+    }
+    void GameClearShow()
+    {
+        naviText.color = Color.green;
+        naviText.text = "MissionComplete!!";
     }
 }

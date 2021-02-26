@@ -18,7 +18,7 @@ public class PlayerDate : MonoBehaviour
     /// <summary>Playerの基礎防御力</summary>
     [SerializeField] public int baseBlockPower = 10;
     /// <summary>レベル</summary>
-    [SerializeField] [Range(1, 50)] private int level = 1;
+    [SerializeField] [Range(1, 50)] public int level = 1;
     /// <summary>経験値</summary>
     [SerializeField] public int nowExp = 0;
     /// <summary>レベルアップに必要な経験値</summary>
